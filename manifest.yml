@@ -1,0 +1,8 @@
+---
+applications:
+  - name: website
+    host: www
+    domain: rabbitmq.com
+    memory: 64M
+    path: tmp/to_deploy_www/srv/www.rabbitmq.com/site
+    buildpack: staticfile_buildpack
