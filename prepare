@@ -6,7 +6,7 @@ mode=$1
 version=$2
 
 if [ x"$mode" = x -o \( x"${version}" = x -a x"$mode" = xprevious \) ] ; then
-    echo 'Usage: build [www|next|previous vA_B_C]'
+    echo 'Usage: prepare [www|next|previous vA_B_C]'
     exit 1
 fi
 
@@ -18,5 +18,3 @@ mkdir -p $tmp_dir
 rm -rf "$tmp_dir/*"
 rsync -qcrz --delete --perms --chmod=a+rwX --exclude=site/man code conf site wordpress-theme $tmp_dir
 $tmp_dir/code/build ${mode} ${version}
-
-cf push
